@@ -76,12 +76,12 @@ bodies.get("MEX").mass = 1000.0
 # Create radiation pressure settings
 reference_area_radiation = (4*0.3*0.1+2*0.1*0.1)/4  # Average projection area of a 3U CubeSat
 radiation_pressure_coefficient = 1.2
-occulting_bodies = ["Mars"]
-radiation_pressure_settings = environment_setup.radiation_pressure.cannonball(
-    "Sun", reference_area_radiation, radiation_pressure_coefficient, occulting_bodies
-)
+occulting_bodies_dict = dict()
+occulting_bodies_dict[ "Sun" ] = [ "Mars" ]
+vehicle_target_settings = environment_setup.radiation_pressure.cannonball_radiation_target(
+    reference_area_radiation, radiation_pressure_coefficient, occulting_bodies_dict )
 # Add the radiation pressure interface to the environment
-environment_setup.add_radiation_pressure_interface(bodies, "MEX", radiation_pressure_settings)
+environment_setup.add_radiation_pressure_target_model( bodies, "MEX", vehicle_target_settings )
 
 # Define bodies that are propagated
 bodies_to_propagate = ["MEX"]

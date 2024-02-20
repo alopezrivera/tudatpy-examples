@@ -237,14 +237,13 @@ coefficient_settings = environment_setup.aerodynamic_coefficients.tabulated_forc
 # Add predefined aerodynamic coefficients database to the body
 environment_setup.add_aerodynamic_coefficient_interface(bodies, "STS", coefficient_settings)
 
-### Add rotation model based on aerodynamic guidance
-"""
-Create the aerodynamic guidance object
+# ### Add rotation model based on aerodynamic guidance
+
+# Create the aerodynamic guidance object
 aerodynamic_guidance_object = STSAerodynamicGuidance(bodies)
 rotation_model_settings = environment_setup.rotation_model.aerodynamic_angle_based(
     'Earth', '', 'STS_Fixed', aerodynamic_guidance_object.getAerodynamicAngles )
 environment_setup.add_rotation_model( bodies, 'STS', rotation_model_settings )
-"""
 
 ## Propagation setup
 """

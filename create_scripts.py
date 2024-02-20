@@ -148,7 +148,7 @@ for example_python_script in example_scripts:
                             stderr=subprocess.STDOUT)
 
     if result.returncode != 0: 
-        print(f'Unsuccessful: syntax error in example: {example_python_script}')
+        print(f'Unsuccessful: syntax error in example -> {example_python_script}')
         example_scripts.remove(example_python_script)
 print('')
 
